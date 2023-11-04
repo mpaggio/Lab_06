@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public final class UseListsAndMaps {
+    private static final int START = 1_000;
+    private static final int STOP = 2_000;
 
     private UseListsAndMaps() {
     }
@@ -25,6 +27,11 @@ public final class UseListsAndMaps {
          * 1) Create a new ArrayList<Integer>, and populate it with the numbers
          * from 1000 (included) to 2000 (excluded).
          */
+        final List<Integer> arrayList = new ArrayList<>();
+        for (int i = this.START ; i < this.STOP ; i++){
+            arrayList.add(i);
+        }
+
         /*
          * 2) Create a new LinkedList<Integer> and, in a single line of code
          * without using any looping construct (for, while), populate it with
