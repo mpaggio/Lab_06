@@ -41,6 +41,18 @@ nothing to commit, working tree clean
 
 3. Si faccia il merge di `feature` dentro `master`, ossia: si posizioni la `HEAD` su `master`
    e da qui si esegua il merge di `feature`
+git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+git status
+On branch master
+Your branch is up to date with 'origin/master'.
+nothing to commit, working tree clean
+git merge feature
+Auto-merging HelloWorld.java
+CONFLICT (content): Merge conflict in HelloWorld.java
+Automatic merge failed; fix conflicts and then commit the result.
+
 4. Si noti che viene generato un **merge conflict**!
 5. Si risolva il merge conflict come segue:
    - Il programma Java risultante deve stampare sia il numero di processori disponibili
