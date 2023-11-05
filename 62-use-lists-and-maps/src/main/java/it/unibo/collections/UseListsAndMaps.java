@@ -139,5 +139,10 @@ public final class UseListsAndMaps {
         /*
          * 8) Compute the population of the world
          */
+        long populationOfTheWorld = 0;
+        for (final Long value : map.values()){
+            populationOfTheWorld = populationOfTheWorld + value;
+        }
+        System.out.println("Population of the world: " + populationOfTheWorld);
     }
 }
