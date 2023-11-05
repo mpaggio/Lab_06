@@ -52,7 +52,7 @@ public final class UseArithmeticService {
                 server.sendData(message);
                 return;
             } catch (final IOException exception){
-                System.out.println("I/O exception thrown: please re-try sending message to the server");
+                System.out.println(exception.getMessage());
             }
         }
     }
@@ -67,7 +67,7 @@ public final class UseArithmeticService {
             try{
                 return server.receiveResponse();
             } catch (final IOException exception){
-                System.out.println("I/O exception thrown: please re-try sending message to the server");
+                System.out.println(exception.getMessage());
             }
         }
     }
