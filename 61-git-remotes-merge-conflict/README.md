@@ -59,6 +59,41 @@ Automatic merge failed; fix conflicts and then commit the result.
      (funzionalità presente su `master`)
      che il nome dell'autore del file
      (funzionalità presente su `feature`)
+cat HelloWorld.java
+public final class HelloWorld {
+
+	private static final String AUTHOR = "Marco Paggetti";
+
+	public static void main(final String[] args) {
+		System.out.println("This program has been realised by " + AUTHOR);
+		System.out.println("This program is running in a PC with " + procNumber() + " logic processors!");
+	}
+
+	public static int procNumber() {
+		return Runtime.getRuntime().availableProcessors();
+	}
+
+}
+javac HelloWorld.java
+java HelloWorld
+This program has been realised by Marco Paggetti
+This program is running in a PC with 8 logic processors!
+git add HelloWorld.java
+git status
+On branch master
+Your branch is up to date with 'origin/master'.
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+Changes to be committed:
+        modified:   HelloWorld.java
+git commit -m 'Adding student name to AUTHORS and resolving merge conflict'
+[master 76f5eb6] Adding student name to AUTHORS and resolving merge conflict
+git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
 6. Si crei un nuovo repository nel proprio github personale
 7. Si aggiunga il nuovo repository creato come **remote** e si elenchino i remote
 8. Si faccia push del branch `master` sul proprio repository
