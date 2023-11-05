@@ -47,7 +47,7 @@ public final class UseArithmeticService {
          * until it succeeds.
          */
         while(true) {
-            System.out.println("Trying to send message to the provider server ...");
+            System.out.println("... Trying to send message to the provider server ...");
             try{
                 server.sendData(message);
                 return;
@@ -63,7 +63,7 @@ public final class UseArithmeticService {
          * until it succeeds.
          */
         while(true){
-            System.out.println("Trying to retrieve information from the provider server ...");
+            System.out.println("... Trying to retrieve information from the provider server ...");
             try{
                 return server.receiveResponse();
             } catch (final IOException exception){
