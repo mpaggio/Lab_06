@@ -12,8 +12,29 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public final class UseListsAndMaps {
+    private static final int ELEMS = 100_000;
     private static final int START = 1_000;
     private static final int STOP = 2_000;
+
+    private static void timeToString(long nano, long milli){
+        System.out.println(// NOPMD
+            "Adding 100.000 elements took "
+                + nano
+                + "ns ("
+                + milli
+                + "ms)"
+        );
+    }
+
+    private static void timeTestInsertHead(List<Integer> list){
+        long time = System.nanoTime();
+        for (int i = 1; i <= ELEMS; i++) {
+            list.add(0,i);
+        }
+        time = System.nanoTime() - time;
+        var millis = TimeUnit.NANOSECONDS.toMillis(time);
+        timeToString(time,millis);
+    }
 
     private UseListsAndMaps() {
     }
@@ -62,6 +83,9 @@ public final class UseListsAndMaps {
          * using the previous lists. In order to measure times, use as example
          * TestPerformance.java.
          */
+        timeTestInsertHead(arrayList);
+        timeTestInsertHead(linkedList);
+
         /*
          * 6) Measure the performance of reading 1000 times an element whose
          * position is in the middle of the collection for both ArrayList and
