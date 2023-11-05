@@ -105,4 +105,15 @@ origin  git@github.com:APICe-at-DISI/OOP-git-merge-conflict-test.git (fetch)
 origin  git@github.com:APICe-at-DISI/OOP-git-merge-conflict-test.git (push)
 
 8. Si faccia push del branch `master` sul proprio repository
+git push myRemote master
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (15/15), 1.60 KiB | 1.60 MiB/s, done.
+Total 15 (delta 4), reused 10 (delta 2), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+To github.com:mpaggio/Lab_61.git
+ * [new branch]      master -> master
+ 
 9. Si setti il branch remoto `master` del nuovo repository come *upstream* per il proprio branch `master` locale
