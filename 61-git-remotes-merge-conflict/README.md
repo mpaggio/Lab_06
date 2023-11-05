@@ -115,5 +115,7 @@ Total 15 (delta 4), reused 10 (delta 2), pack-reused 0
 remote: Resolving deltas: 100% (4/4), done.
 To github.com:mpaggio/Lab_61.git
  * [new branch]      master -> master
- 
+
 9. Si setti il branch remoto `master` del nuovo repository come *upstream* per il proprio branch `master` locale
+git branch --set-upstream-to=myRemote/master
+branch 'master' set up to track 'myRemote/master'.
