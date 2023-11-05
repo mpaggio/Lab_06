@@ -16,6 +16,12 @@ public final class UseListsAndMaps {
     private static final int TIMES = 1_000;
     private static final int START = 1_000;
     private static final int STOP = 2_000;
+    private static long AFRICA_POPULATION = 1110635000L;
+    private static long AMERICAS_POPULATION = 972005000L;
+    private static long ANTARCTICA_POPULATION = 0L;
+    private static long ASIA_POPULATION = 4298723000L;
+    private static long EUROPE_POPULATION = 742452000L;
+    private static long OCEANIA_POPULATION = 38304000L;
 
     private static void timeToString(String message, long nano, long milli){
         System.out.println(// NOPMD
@@ -122,6 +128,14 @@ public final class UseListsAndMaps {
          *
          * Oceania -> 38,304,000
          */
+        final Map<String,Long> map = new HashMap<>();
+        map.put("Africa", AFRICA_POPULATION);
+        map.put("Americas", AMERICAS_POPULATION);
+        map.put("Antarctica", ANTARCTICA_POPULATION);
+        map.put("Asia", ASIA_POPULATION);
+        map.put("Europe", EUROPE_POPULATION);
+        map.put("Oceania", OCEANIA_POPULATION);
+
         /*
          * 8) Compute the population of the world
          */
