@@ -26,6 +26,19 @@ Your branch is up to date with 'origin/master'.
 nothing to commit, working tree clean
 
 2. Ci si assicuri di avere localmente entrambi i branch remoti
+git branch -v
+* master 8e0f29c Change HelloWorld to print the number of available processors
+* git checkout -b feature origin/feature
+Switched to a new branch 'feature'
+branch 'feature' set up to track 'origin/feature'.
+git branch -v
+* feature bed943f Print author information
+  master  8e0f29c Change HelloWorld to print the number of available processors
+git status
+On branch feature
+Your branch is up to date with 'origin/feature'.
+nothing to commit, working tree clean
+
 3. Si faccia il merge di `feature` dentro `master`, ossia: si posizioni la `HEAD` su `master`
    e da qui si esegua il merge di `feature`
 4. Si noti che viene generato un **merge conflict**!
