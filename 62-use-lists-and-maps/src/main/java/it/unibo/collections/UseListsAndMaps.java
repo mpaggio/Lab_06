@@ -28,7 +28,7 @@ public final class UseListsAndMaps {
          * from 1000 (included) to 2000 (excluded).
          */
         final List<Integer> arrayList = new ArrayList<>();
-        for (int i = this.START ; i < this.STOP ; i++){
+        for (int i = START; i < STOP; i++){
             arrayList.add(i);
         }
 
@@ -36,21 +36,25 @@ public final class UseListsAndMaps {
          * 2) Create a new LinkedList<Integer> and, in a single line of code
          * without using any looping construct (for, while), populate it with
          * the same contents of the list of point 1.
-         */
+        */
         final List<Integer> linkedList = new LinkedList<>(arrayList);
 
         /*
          * 3) Using "set" and "get" and "size" methods, swap the first and last
          * element of the first list. You can not use any "magic number".
          * (Suggestion: use a temporary variable)
-         */
+        */
         final Integer tmp = arrayList.get(0);
         arrayList.set(0, arrayList.get(arrayList.size() - 1));
         arrayList.set(arrayList.size() - 1, tmp);
 
         /*
          * 4) Using a single for-each, print the contents of the arraylist.
-         */
+        */
+        for (final Integer tmpForEach : arrayList){
+            System.out.println(tmpForEach);
+        }
+
         /*
          * 5) Measure the performance of inserting new elements in the head of
          * the collection: measure the time required to add 100.000 elements as
