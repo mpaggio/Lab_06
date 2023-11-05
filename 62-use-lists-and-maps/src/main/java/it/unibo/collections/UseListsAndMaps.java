@@ -13,16 +13,17 @@ import java.util.concurrent.TimeUnit;
  */
 public final class UseListsAndMaps {
     private static final int ELEMS = 100_000;
+    private static final int TIMES = 1_000;
     private static final int START = 1_000;
     private static final int STOP = 2_000;
 
-    private static void timeToString(long nano, long milli){
+    private static void timeToString(String message, long nano, long milli){
         System.out.println(// NOPMD
-            "Adding 100.000 elements took "
-                + nano
-                + "ns ("
-                + milli
-                + "ms)"
+            message
+            + nano
+            + "ns ("
+            + milli
+            + "ms)"
         );
     }
 
@@ -33,7 +34,17 @@ public final class UseListsAndMaps {
         }
         time = System.nanoTime() - time;
         var millis = TimeUnit.NANOSECONDS.toMillis(time);
-        timeToString(time,millis);
+        timeToString("Adding 100.000 elements to the head of the list took ",time,millis);
+    }
+
+    private static void timeTestReadMiddle(List<Integer> list){
+        long time = System.nanoTime();
+        for (int i = 1; i <= TIMES; i++) {
+            list.get(list.size()/2);
+        }
+        time = System.nanoTime() - time;
+        var millis = TimeUnit.NANOSECONDS.toMillis(time);
+        timeToString("Reading 1.000 times the middle element from the list took ",time,millis);
     }
 
     private UseListsAndMaps() {
@@ -92,6 +103,9 @@ public final class UseListsAndMaps {
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example TestPerformance.java.
          */
+        timeTestReadMiddle(arrayList);
+        timeTestReadMiddle(linkedList);
+
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
