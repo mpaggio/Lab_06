@@ -81,7 +81,12 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
-        return false;
+        Set<U> groupUsers = this.userMap.get(circle);
+        if(groupUsers == null){
+            groupUsers = new HashSet<>();
+            this.userMap.put(circle, groupUsers);
+        }
+        return groupUsers.add(user);
     }
 
     /**
