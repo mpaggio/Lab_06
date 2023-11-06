@@ -1,21 +1,10 @@
 package it.unibo.generics.graph.impl;
 
 import it.unibo.generics.graph.api.Graph;
-import java.util.List;
-import java.util.Set;
-import java.util.Objects;
-import java.util.LinkedList;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
+import java.lang.Object;
 
 public class GraphImpl<N> implements Graph<N>{
-    private static String WHITE = "WHITE";
-    private static String GRAY = "GRAY";
-    private static String BLACK = "BLACK";
     private final Map<N,Set<N>> edgesMap = new LinkedHashMap<>();
 
     private boolean nodeExist(N node){
@@ -49,27 +38,28 @@ public class GraphImpl<N> implements Graph<N>{
         return this.edgesMap.get(node);
     }
 
-    private void bfs(N source, N target){
-        Map<N,String> nodeColor = new HashSet<>();
+    private Map<N,N> bfs(N source, N target){
+        Map<N,String> nodeColor = new HashMap<>();
         Map<N, N> parent = new HashMap<>();
         Queue<N> queue = new LinkedList<>();
         for (N node : this.edgesMap.keySet()){
-            nodeColor.put(node, WHITE);
+            nodeColor.put(node, "WHITE");
                parent.put(node, null);
         }
-        nodeColor.replace(source, WHITE, GRAY);
+        nodeColor.replace(source, "WHITE", "GRAY");
         queue.add(source);
         while (!queue.isEmpty()) {
             N currentNode = queue.poll();
             for (N elem : this.edgesMap.get(currentNode)) {
-                if (nodeColor.get(elem) == WHITE) {
-                    nodeColor.replace(elem, WHITE, GRAY);
+                if (nodeColor.get(elem) == "WHITE") {
+                    nodeColor.replace(elem, "WHITE", "GRAY");
                     parent.put(elem, currentNode);
                     queue.add(elem);
                 }
             }
-            nodeColor.replace(currentNode, GRAY, BLACK)
+            nodeColor.replace(currentNode, "GRAY", "BLACK");
         }
+        return parent;
     }
 
     /* Gets one sequence of nodes connecting source to target. 
@@ -77,12 +67,15 @@ public class GraphImpl<N> implements Graph<N>{
 
     public List<N> getPathWithBFS(N source, N target){
         if(nodeExist(source) && nodeExist(target)){
-            List<N> path = new LinkedList<>();
+            LinkedList<N> path = new LinkedList<>();
+            Map<N,N> parentMap = bfs(source, target);
             N node = target;
-            bfs(source, target);
-            while(node != source){
-
+            while(parentMap.get(node) != null){
+                path.addFirst(node);
+                node = parentMap.get(node);
             }
+            path.addFirst(node);
+            return path;
         }
         return new ArrayList<>();
     }

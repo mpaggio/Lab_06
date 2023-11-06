@@ -50,6 +50,6 @@ public interface Graph<N> {
      *            the target node
      * @return a sequence of nodes connecting sources and target
      */
-    List<N> getPath(N source, N target);
+    List<N> getPathWithBFS(N source, N target);
 
 }
