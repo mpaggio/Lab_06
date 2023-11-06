@@ -4,6 +4,7 @@ import it.unibo.generics.graph.api.Graph;
 import java.util.List;
 import java.util.Set;
 import java.util.Objects;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,6 +12,13 @@ import java.util.Map;
 public class GraphImpl<N> implements Graph<N>{
     private final Map<N,Set<N>> edgesMap = new LinkedHashMap<>();
 
+    private boolean nodeExist(N node){
+        if(node != null && this.edgesMap.containsKey(node)){
+            return true;
+        }
+        return false;
+    }
+    
     /* Adds a node: nothing happens if node is null or already there. */
     public void addNode(N node){
         if(node != null && !this.edgesMap.containsKey(node)){
@@ -20,10 +28,8 @@ public class GraphImpl<N> implements Graph<N>{
 
     /* Adds an edge: nothing happens if source or target are null. */
     public void addEdge(N source, N target){
-        if(source != null && target != null){
-            if(this.edgesMap.containsKey(source) && this.edgesMap.containsKey(target)){
-                this.edgesMap.get(source).add(target);
-            }
+        if(nodeExist(source) && nodeExist(target)){
+            this.edgesMap.get(source).add(target);
         }
     }
 
@@ -39,7 +45,11 @@ public class GraphImpl<N> implements Graph<N>{
 
     /* Gets one sequence of nodes connecting source to target. */
     public List<N> getPath(N source, N target){
-        return null;
+        List<N> path = new ArrayList<>();
+        if(nodeExist(source) && nodeExist(target)){
+
+        }
+        return path;
     }
 
 }
