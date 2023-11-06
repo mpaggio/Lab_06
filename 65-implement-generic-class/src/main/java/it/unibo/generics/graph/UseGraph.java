@@ -51,7 +51,7 @@ public final class UseGraph {
          * Either the path b,c,a or b,c,d,e,a
          */
         assertIsAnyOf(
-            graph.getPath("b", "a"),
+            graph.getPathWithBFS("b", "a"),
             Arrays.asList(splitOnWhiteSpace("b c a")),
             Arrays.asList(splitOnWhiteSpace("b c d e a"))
         );
