@@ -29,7 +29,7 @@ public class GraphImpl<N> implements Graph<N>{
 
     /* Return all the nodes */
     public Set<N> nodeSet(){
-        return null;
+        return new HashSet<>(this.edgesMap.keySet());
     }
 
     /* Returns all the nodes directly targeted from a node. */
