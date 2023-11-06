@@ -1,6 +1,6 @@
 package it.unibo.generics.graph.impl;
 
-import it.unibo.generics.api.Graph;
+import it.unibo.generics.graph.api.Graph;
 import java.util.List;
 import java.util.Set;
 import java.util.Objects;
