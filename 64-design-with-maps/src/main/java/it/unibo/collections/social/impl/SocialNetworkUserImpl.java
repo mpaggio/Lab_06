@@ -96,7 +96,11 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     @Override
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
-        return null;
+        Collection<U> followedUsersInGroup = this.userMap.get(groupName);
+        if(followedUsersInGroup == null){
+            followedUsersInGroup = new ArrayList<>();
+        }
+        return new ArrayList<>(followedUsersInGroup);
     }
 
     @Override
