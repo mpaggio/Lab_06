@@ -105,6 +105,10 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
 
     @Override
     public List<U> getFollowedUsers() {
-        return null;
+        List<U> followedUsers = new ArrayList<>();
+        for(final Set<U> followedUsersPerGoup : this.userMap.values()){
+            followedUsers.addAll(followedUsersPerGoup);
+        }
+        return followedUsers;
     }
 }
