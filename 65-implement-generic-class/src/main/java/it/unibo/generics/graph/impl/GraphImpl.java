@@ -34,7 +34,7 @@ public class GraphImpl<N> implements Graph<N>{
 
     /* Returns all the nodes directly targeted from a node. */
     public Set<N> linkedNodes(N node){
-        return null;
+        return this.edgesMap.get(node);
     }
 
     /* Gets one sequence of nodes connecting source to target. */
